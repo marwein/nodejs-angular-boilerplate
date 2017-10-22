@@ -18,7 +18,7 @@ var config = {
 
 dotenv.load();
 
-var port = normalizePort(config.app.port || '3000');
+var port = normalizePort(process.env.PORT || config.app.port || '3000');
 app.set('port', port);
 
 /**
