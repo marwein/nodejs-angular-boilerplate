@@ -14,7 +14,6 @@
         "dotenv": "^4.0.0",
         "ejs": "^2.5.7",
         "express": "~4.15.5",
-        "express-session": "^1.15.6",
         "helmet": "^3.9.0",
         "hide-powered-by": "^1.0.0",
         "jade": "~1.11.0",

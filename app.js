@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -9,7 +9,6 @@ var helmet = require('helmet');
 var dotenv = require('dotenv');
 var methodOverride = require('method-override');
 var ejs = require('ejs');
-var session = require('express-session');
 var cors = require('cors');
 
 //Configuration load
@@ -42,23 +41,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(hidePoweredBy({
-    setTo: 'Bouallous Marwein'
-}));
+app.use(hidePoweredBy());
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(path.join(__dirname, './public/')));
-
-app.use(session({
-    secret: config.app.secret,
-    proxy: true,
-    resave: true,
-    saveUninitialized: true,
-    /*
-    store: new MongoStore({
-        url: config.database,
-    })
-    */
-}));
 
 app.use('/', index);
 app.use('/users', users);
