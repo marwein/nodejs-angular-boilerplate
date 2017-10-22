@@ -33,7 +33,7 @@ app.use(helmet());
 
 app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
-app.set('views', path.join(__dirname, 'public'));
+app.set('views', path.join(__dirname, 'views'));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
