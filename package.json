@@ -4,7 +4,9 @@
     "private": true,
     "scripts": {
         "start": "node ./bin/www",
-        "nodemon": "nodemon ./bin/www"
+        "nodemon": "nodemon ./bin/www",
+        "build": "cd assets && ng build --prod --env=prod",
+        "heroku": "npm build | cd .. && git add . && git commit -am 'deploying' && git push heroku master"
     },
     "dependencies": {
         "body-parser": "~1.18.2",
