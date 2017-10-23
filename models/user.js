@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var mongooseUniqueValidator = require('mongoose-unique-validator');
+var validators = require('mongoose-validators');
 
 var schema = new Schema({
     firstName: { type: String, required: true },
