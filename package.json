@@ -6,7 +6,8 @@
         "start": "node ./bin/www",
         "nodemon": "nodemon ./bin/www",
         "build": "cd assets && ng build --prod --env=prod",
-        "heroku": "npm run build && git add . && git commit -am 'deploying' && git push heroku master"
+        "push": "npm run build && git add . && git commit -am 'deploying' && git push github master && git push gitlab master",
+        "heroku": "npm run build && git add . && git commit -am 'deploying' && git push github master && git push gitlab master && git push heroku master"
     },
     "dependencies": {
         "body-parser": "~1.18.2",
