@@ -10,6 +10,7 @@ var dotenv = require('dotenv');
 var methodOverride = require('method-override');
 var ejs = require('ejs');
 var cors = require('cors');
+var mongoose = require('mongoose');
 
 //Configuration load
 var config = {
@@ -26,6 +27,10 @@ var app = express();
 dotenv.load();
 app.use(cors());
 app.use(helmet());
+
+mongoose.connect(`${config.db.host}${config.db.base}`, {
+    useMongoClient: true,
+});
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
