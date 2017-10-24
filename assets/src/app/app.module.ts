@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
+import { MarweinComponent } from './marwein/marwein.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MarweinComponent
   ],
   imports: [
     NgbModule.forRoot(),

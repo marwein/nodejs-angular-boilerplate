@@ -7,7 +7,10 @@
     <h2>NPM heroku build & Deploy</h2>
     <div>
         <p *ngFor="let alert of alerts">
+            <app-marwein></app-marwein>
+            <!--
             <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+            -->
         </p>
         <p>
             <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
