@@ -9,16 +9,17 @@ var debug = require('debug')('marwein:server');
 var http = require('http');
 var cluster = require('cluster');
 var dotenv = require('dotenv');
-var config = {
-    app: require('../config/app'),
-};
+//Configuration load
+var settings = require('../config/settings');
+var config = (settings.env === 'dev') ? settings.dev : settings.prod;
+
 /**
  * Get port from environment and store in Express.
  */
 
 dotenv.load();
 
-var port = normalizePort(process.env.PORT || config.app.port || '3000');
+var port = normalizePort(config.app.port || process.env.PORT || '3000');
 app.set('port', port);
 
 /**

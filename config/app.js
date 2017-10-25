@@ -1,9 +1,14 @@
-var dotenv = require('dotenv');
-dotenv.load();
+require('dotenv').config({ silent: true });
 
 var app = {
-    secret: process.env.APP_SECRET,
-    port: process.env.APP_PORT
+    dev: {
+        secret: process.env.APP_SECRET,
+        port: process.env.APP_DEV_PORT
+    },
+    prod: {
+        secret: process.env.APP_SECRET,
+        port: process.env.APP_PROD_PORT
+    }
 };
 
 module.exports = app;

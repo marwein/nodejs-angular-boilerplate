@@ -13,10 +13,8 @@ var cors = require('cors');
 var mongoose = require('mongoose');
 
 //Configuration load
-var config = {
-    app: require('./config/app'),
-    db: require('./config/db')
-};
+var settings = require('./config/settings');
+var config = (settings.env === 'dev') ? settings.dev : settings.prod;
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -27,10 +25,16 @@ var app = express();
 dotenv.load();
 app.use(cors());
 app.use(helmet());
+console.log(config.db.host);
 
-mongoose.connect(`${config.db.host}${config.db.base}`, {
+/*
+mongoose.connect(`
+        $ { config.db.host }
+        $ { config.db.base }
+        `, {
     useMongoClient: true,
 });
+*/
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
