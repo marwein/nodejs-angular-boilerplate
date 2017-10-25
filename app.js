@@ -30,9 +30,6 @@ mongoose.connect(`${ config.db.host }${ config.db.base }`, {
     useMongoClient: true,
 });
 
-// view engine setup
-//app.set('views', path.join(__dirname, 'views'));
-
 app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 app.set('views', path.join(__dirname, 'public'));
