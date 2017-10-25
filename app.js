@@ -26,15 +26,9 @@ var app = express();
 app.use(cors());
 app.use(helmet());
 console.log(config.db.host);
-
-/*
-mongoose.connect(`
-        $ { config.db.host }
-        $ { config.db.base }
-        `, {
+mongoose.connect(`${ config.db.host }${ config.db.base }`, {
     useMongoClient: true,
 });
-*/
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
