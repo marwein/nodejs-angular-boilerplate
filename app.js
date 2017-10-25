@@ -6,11 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hidePoweredBy = require('hide-powered-by');
 var helmet = require('helmet');
-var dotenv = require('dotenv');
 var methodOverride = require('method-override');
 var ejs = require('ejs');
 var cors = require('cors');
 var mongoose = require('mongoose');
+
+require('dotenv').config({ silent: true });
 
 //Configuration load
 var settings = require('./config/settings');
@@ -22,7 +23,6 @@ var users = require('./routes/users');
 var app = express();
 
 // Load ENV File
-dotenv.load();
 app.use(cors());
 app.use(helmet());
 console.log(config.db.host);
