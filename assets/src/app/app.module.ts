@@ -4,11 +4,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { MarweinComponent } from './marwein/marwein.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MarweinComponent
+    MarweinComponent,
+    UsersComponent
   ],
   imports: [
     NgbModule.forRoot(),

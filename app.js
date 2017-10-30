@@ -11,9 +11,8 @@ var ejs = require('ejs');
 var cors = require('cors');
 var mongoose = require('mongoose');
 
-require('dotenv').config({ silent: true });
+var dotenv = require('dotenv').config({ silent: true });
 
-//Configuration load
 var settings = require('./config/settings');
 var config = (settings.env === 'dev') ? settings.dev : settings.prod;
 
@@ -22,10 +21,6 @@ var users = require('./routes/users');
 
 var app = express();
 
-// Load ENV File
-app.use(cors());
-app.use(helmet());
-console.log(config.db.host);
 mongoose.connect(`${ config.db.host }${ config.db.base }`, {
     useMongoClient: true,
 });
@@ -34,7 +29,8 @@ app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 app.set('views', path.join(__dirname, 'public'));
 
-// uncomment after placing your favicon in /public
+app.use(cors());
+app.use(helmet());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -44,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(hidePoweredBy());
 app.use(methodOverride('X-HTTP-Method-Override'));
 
+//Load Routes
 app.use('/', index);
 app.use('/users', users);
 
